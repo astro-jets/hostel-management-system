@@ -1,0 +1,50 @@
+<% const months=[ 'jan' ,'feb','mar' ] %>
+<!-- Form Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-dark rounded h-100 p-4">
+                <h6 class="mb-4" style="color: antiquewhite">
+                    Registered Customers
+                </h6>
+                <table class="table table-bordered table table table-hover mb-0"
+                    style="text-align: center; color: antiquewhite">
+                    <thead>
+                        <tr>
+                            <th scope="col">User Name</th>
+                            <th scope="col">User Email</th>
+                            <th scope="col">Hostel Name</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% bookings.forEach(booking=> { %>
+                            <tr>
+                                <td><%= booking.user.username%></td>
+                                <td><%= booking.user.email%></td>
+                                <td><%= booking.hostel%></td>
+                                <td>
+                                    <%= 
+                                    booking.date.getDate()+' '+
+                                    months[booking.date.getMonth()]+' '+
+                                    booking.date.getFullYear()
+                                    %>
+                                </td>
+                                <td>
+                                    <%= booking.status%>
+                                </td>
+                                <td>
+                                    <a href="/admin/approvebooking/<%= booking.id%>" class="btn btn-success"> Approve</a>
+                                    <a href="/admin/declinebooking/<%= booking.id%>" class="btn btn-danger"> Decline</a>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Form End -->

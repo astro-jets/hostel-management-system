@@ -1,0 +1,37 @@
+<!-- Form Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-dark rounded h-100 p-4">
+                <h6 class="mb-4" style="color: antiquewhite">
+                    Registered Customers
+                </h6>
+                <table class="table table-bordered table table table-hover mb-0"
+                    style="text-align: center; color: antiquewhite">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% users.forEach(user => { %>
+                        <tr>
+                            <td><%= user.username%></td>
+                            <td><%= user.email%></td>
+                            <td>+265 123 456 789</td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+                <br />
+                <a href="addcustomer.html" class="btn btn-primary"> Add</a>
+                <button type="submit" class="btn btn-danger">
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Form End -->

@@ -1,0 +1,31 @@
+<!-- Posts -->
+<section class="wrapper style1">
+    <div class="container">
+        <div class="row">
+            <% applications.forEach(app=>{%>
+                <section class="col-6 col-12-narrower">
+                    <div class="box post">
+                        <a href="#" class="image left"><img src="<%= app.hostel.thumbnailPath%>" alt="" /></a>
+                        <div class="inner">
+                            <h3>
+                                Application Feedback
+                            </h3>
+                            <p>
+                                We wish to inform you that your application for <%= app.hostel.name%> hostel was <%=
+                                        app.status%>.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <% }); %>
+        </div>
+    </div>
+</section>
+<script>
+    const current = document.getElementById('mybookings')
+    const previous = document.querySelector('.current')
+    if (current) {
+        previous.classList.remove('current')
+        current.classList.add('current')
+    }
+</script>

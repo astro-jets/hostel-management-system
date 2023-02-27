@@ -1,0 +1,40 @@
+<!-- Form Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-dark rounded h-100 p-4">
+                <h6 class="mb-4" style="color: antiquewhite">
+                    Registered Customers
+                </h6>
+                <table class="table table-bordered table table table-hover mb-0"
+                    style="text-align: center; color: antiquewhite">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone number</th>
+                            <th scope="col">&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% hostels.forEach(hostel=> { %>
+                            <tr>
+                                <td>
+                                    <%= hostel.name%>
+                                </td>
+                                <td>
+                                    <%= hostel.description%>
+                                </td>
+                                <td>+265 123 456 789</td>
+                                <td><a href="/admin/delete/<%=hostel._id%>" class="btn btn-danger"> Delete <i class="fas fa-delete"></i></a></td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+                <br />
+                <a href="/admin/newhostel" class="btn btn-primary btn-lg col-6"> Add New Hostel <i class="fas fa-plus"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Form End -->

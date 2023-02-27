@@ -1,0 +1,28 @@
+<!-- Header -->
+<div id="header">
+    <!-- Logo -->
+    <h1>
+        <a href="/" id="logo">
+            Chichiri Hostels
+        </a>
+        <% if(user) {%>
+        <div><small> Welcome Back <%= user.username %></small></div>
+        <% } %>
+    </h1>
+
+    <!-- Nav -->
+    <nav id="nav">
+        <ul>
+            <li id="home" class="current"><a href="/">Home <i class="fas fa-home"></i></a></li>
+            <li id="hostels"><a href="/hostels">Hostels <i class="fas fa-search"></i></a></li>
+            <li><a href="#contacts">Contact Us <i class="fas fa-envelope"></i></a></li>
+            <% if(user) {%>
+                <li id="mybookings"><a href="/mybookings">My bookings <i class="fas fa-user"></i></a></li>
+                <li><a href="/auth/logOut">Log Out <i class="fas fa-door-open"></i></a></li>
+            <% } else { %>
+                <li><a href="/auth">Log In <i class="fas fa-door-closed"></i></a></li>
+            <%}%>
+        </ul>
+    </nav>
+</div>
+<!-- Header end -->

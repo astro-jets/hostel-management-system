@@ -1,0 +1,36 @@
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-dark rounded h-100 p-4">
+                <h6 class="mb-4" style="color: antiquewhite">
+                    Add new Hostel
+                </h6>
+                <form action="/admin/newhostel" method="POST">
+                    <div class="col mb-3">
+                        <div class="row">
+                            <label for="inputName3" class="col-sm-2 col-form-label">Hostel Name</label>
+                        </div>
+                        <div class="row-sm-10">
+                            <input type="text" name="name" class="form-control" id="inputName3" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-xl-6">
+                            <label for="inputName3" class="col-sm-2 col-form-label">Description</label>
+                            <div class="col-sm-10">
+                                <textarea name="description" class="form-control" id="" cols="30" rows="19"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <label for="inputName3" class="col-sm-2 col-form-label">Attach Photo</label>
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control filepond" name="thumbnail" id="inputName3" />
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg col-xl-5">Add Hostel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

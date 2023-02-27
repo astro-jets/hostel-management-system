@@ -1,0 +1,38 @@
+<script>
+    const current = document.getElementById('hostels')
+    const previous = document.querySelector('.current')
+    if (current) {
+        previous.classList.remove('current')
+        current.classList.add('current')
+    }
+</script>
+
+<!-- Gigantic Heading -->
+<section class="wrapper style2">
+    <div class="container">
+        <header class="major">
+            <h2>Listed Hostels</h2>
+            <p>take advantage and rent a space in the most convinnient hostels available</p>
+        </header>
+    </div>
+</section>
+
+<!-- Posts -->
+<section class="wrapper style1">
+    <div class="container">
+        <div class="row">      
+        <% for (let i = 0; i < hostels.length; i++) {const current = hostels[i];%>
+            <section class="col-6 col-12-narrower">
+                <div class="box post">
+                    <a href="#" class="image left"><img src="<%= current.thumbnailPath %>" alt="" /></a>
+                    <div class="inner">
+                        <h3><%= current.name%></h3>
+                        <p><%= current.description%></p>
+                        <a href="/hostels/<%= current._id%>" class="button">Book hostel</a>
+                    </div>
+                </div>
+            </section>
+        <% } %>
+        </div>
+    </div>
+</section>
