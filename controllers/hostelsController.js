@@ -25,7 +25,6 @@ module.exports.bookHostel = async (req,res)=>{
         hostel:req.params.id,
         user:res.locals.user
     })
-
     try{
         const currentHostel = await booking.save();
         res.redirect('/hostels')

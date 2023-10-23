@@ -1,6 +1,7 @@
 const express = require('express');
 const Booking = require('../models/Booking');
 const Hostel = require('../models/Hostel');
+
 const router = express.Router();
 
 const {requireAuth, currentUser} = require('../middleware/authMiddleware')
@@ -8,7 +9,10 @@ const {requireAuth, currentUser} = require('../middleware/authMiddleware')
 router.get("*",currentUser )
 router.get("/",async (req,res)=>{    
     try{
-        res.render('index');
+        const allHostels = await Hostel.find();
+        res.render('index',{
+            hostels:allHostels
+        });
     }
     catch(err)
     {
@@ -16,6 +20,18 @@ router.get("/",async (req,res)=>{
     }
 })
 
+
+//Users Bookings Hostel
+router.get("/cancelreservation/:id",async (req,res)=>{
+    try{
+        const booking = await Booking.findOne({hostel:req.params.id});
+        if(booking){
+            booking.status="cancelled";
+            await booking.save();
+            res.redirect('/mybookings')
+        }
+    }catch(e){console.log(e.message);}
+})
 
 //Users Bookings Hostel
 router.get("/mybookings",async (req,res)=>{    

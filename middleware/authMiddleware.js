@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 
+// Redirect users tha are'nt logged in
 const requireAuth = (req,res,next)=>{
     const token = req.cookies.jwt;
     // Check if token exists and is valid
