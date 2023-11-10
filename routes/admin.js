@@ -30,5 +30,7 @@ router.get("/approvebooking/:id", controller.approveBooking)
 //Decline Booking *Post*
 router.get("/declinebooking/:id", controller.declineBooking)
 
+router.get("/delete/:id", controller.deleteHostel)
+
 
 module.exports = router;

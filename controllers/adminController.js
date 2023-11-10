@@ -143,6 +143,29 @@ module.exports.declineBooking = async (req,res)=>{
     catch(e){res.send(e.message)}
 }
 
+
+// Assuming you have the necessary imports and Hostel model defined
+
+// Delete a hostel
+module.exports.deleteHostel = async (req, res) => {
+    try {
+        const hostel = await Hostel.findByIdAndDelete(req.params.id);
+
+        if (!hostel) {
+            // If the hostel with the given ID is not found
+            return res.status(404).json({ message: 'Hostel not found' });
+        }
+
+        // If the hostel is successfully deleted
+        return res.redirect('/admin/hostels');
+    } catch (error) {
+        // Handle any errors that occurred during the deletion process
+        console.error(error);
+        return res.status(500).json({ message: 'Internal Server Error' });
+    }
+};
+
+
 function saveThumbnail(hostelDetails, encodedimg)
 {
     if(encodedimg == null){return}
